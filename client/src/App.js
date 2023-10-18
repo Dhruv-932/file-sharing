@@ -5,9 +5,7 @@ import { uploadFile } from './service/api';
 function App() {
   const [file, setFile] = useState('');
   const [result, setResult] = useState('');
-
   const fileInputRef = useRef();
-
   const url = 'https://i.pinimg.com/originals/16/46/24/1646243661201a0892cc4b1a64fcbacf.jpg';
 
   useEffect(() => {
@@ -16,7 +14,6 @@ function App() {
         const data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
-
         const response = await uploadFile(data);
         setResult(response.path);
       }
